@@ -30,6 +30,7 @@ const ScrollableTabBar = createReactClass({
     textStyle: Text.propTypes.style,
     renderTab: PropTypes.func,
     underlineStyle: ViewPropTypes.style,
+    underlineInnerStyle: ViewPropTypes.style,
     onScroll: PropTypes.func,
   },
 
@@ -43,6 +44,7 @@ const ScrollableTabBar = createReactClass({
       tabStyle: {},
       tabsContainerStyle: {},
       underlineStyle: {},
+      underlineInnerStyle: {},
     };
   },
 
@@ -187,7 +189,9 @@ const ScrollableTabBar = createReactClass({
             const renderTab = this.props.renderTab || this.renderTab;
             return renderTab(name, page, isTabActive, this.props.goToPage, this.measureTab.bind(this, page));
           })}
-          <Animated.View style={[tabUnderlineStyle, dynamicTabUnderline, this.props.underlineStyle, ]} />
+          <Animated.View style={[tabUnderlineStyle, dynamicTabUnderline, this.props.underlineStyle, ]} >
+            <View style={[{ backgroundColor: 'navy',width:'100%',height:'100%'},this.props.underlineInnerStyle]}/>
+          </Animated.View>
         </View>
       </ScrollView>
     </View>;
