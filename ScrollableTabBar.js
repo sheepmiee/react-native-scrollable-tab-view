@@ -159,6 +159,7 @@ const ScrollableTabBar = createReactClass({
       height: 4,
       backgroundColor: 'navy',
       bottom: 0,
+      alignItems: 'center',
     };
 
     const dynamicTabUnderline = {
